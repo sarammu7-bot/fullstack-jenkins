@@ -5,6 +5,21 @@
 </head>
 <body>
   <h1>Frontend is running</h1>
-  <p>Deployed via Jenkins</p>
+  <button onclick="callBackend()">Call Backend</button>
+  <p id="response"></p>
+
+  <script>
+    function callBackend() {
+      fetch('http://54.209.7.12:5000/api/message')
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('response').innerText = data.message;
+        })
+        .catch(err => {
+          document.getElementById('response').innerText = 'Error connecting backend';
+        });
+    }
+  </script>
 </body>
 </html>
+
