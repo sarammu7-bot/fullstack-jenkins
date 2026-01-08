@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Backend is running');
+app.get('/api/message', (req, res) => {
+  res.json({ message: 'Hello from Backend 🚀' });
 });
 
 app.listen(5000, () => {
